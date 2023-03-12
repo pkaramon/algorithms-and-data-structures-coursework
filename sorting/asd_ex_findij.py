@@ -7,6 +7,8 @@
 # two "pointers" start at 0
 # move them forward, depending on the difference
 
-def find_ij(array, x):
+# 23 5 9 11 13 17 19 25
 
+
+def find_ij(array, x):
     ...

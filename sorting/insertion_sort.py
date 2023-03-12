@@ -8,7 +8,7 @@ def insertion_sort(arr):
             arr[j+1] = key
 
 
-def insertion_sort(array):
+def insertion_sort_2(array):
     for i in range(1, len(array)):
         j = i-1
         while j >= 0 and array[j] > array[j+1]:
