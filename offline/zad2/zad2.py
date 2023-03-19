@@ -1,129 +1,60 @@
 """ Piotr Karamon
 
+Największa ilość śniegu jaką można by zebrać to TS = M1 + (M2 -1) + (M3 - 2) + ... + (Mk - (k-1))
+Gdzie M1 to największy obszar śniegu, M2 drugi największy itd, i Mk -(k-1) > 0.
+Zawsze możemy zebrać właśnie tą największą ilość śniegu.
+Wynika to z faktu iż całkowita wartość zebranego śniegu nie zależy od kolejności
+zbierania tego śniegu(o ile zbierając jakiś śnieg Mi nie zniszczymy jakiegoś Mj).
 
+Algorytm sortuje tablicę S quick sortem by uzyskać wartość TS, w momencie w którym
+wiadomo że już więcej śniegu nie uda się zebrać kończy sortowanie.
 
+Złożoność czasowa    : O(nlogn)
+Złożoność pamięciowa : O(n)
 """
 
 from zad2testy import runtests
+import random
 
-def snow( S ):
+def snow(S):
     n = len(S)
     if n == 0:
         return 0
 
     total_snow, day = 0, 0
-    def solve_v3(A, p, r):
-        nonlocal total_snow
-        nonlocal day
-        if p == r and A[p] - day > 0:
-            total_snow += A[p] - day
+
+    def calculate_total_snow(S, left, right):
+        nonlocal total_snow, day
+
+        if left == right and S[left] - day > 0:
+            total_snow += S[left] - day
             day += 1
             return
 
-        if p < r:
-            q = parition(A, p, r)
+        if left < right:
+            q = parition(S, left, right)
             before = total_snow
-            solve_v3(A,q, r)
+            calculate_total_snow(S, q, right)
             if total_snow != before:
-                solve_v3(A,p, q-1)
+                calculate_total_snow(S, left, q-1)
 
-
-    # def solve_v2(A):
-    #     total_snow = 0
-    #     day = 0
-    #     stack= [(0, n-1)]
-    #     while len(stack) != 0:
-    #         p, r = stack.pop() 
-    #         if p==r:
-    #             2
-    #             if A[p] - day > 0:
-    #                 total_snow += A[p] - day
-    #                 day += 1
-    #                 continue
-    #             else:
-    #                 break
-    #         q = parition(A, p, r)
-    #         if q <= r:
-    #             stack.append((q, r))
-    #         if p <= q-1:
-    #             stack.append((p, q-1))
-    #     return total_snow
-
-        
-
-    solve_v3(S, 0, n-1)
+    calculate_total_snow(S, 0, n-1)
     return total_snow
 
 
-def solve_v2(A,total_snow=0):
-    n = len(A)
-    max_stack= [(0, n-1)]
-    min_stack = []
+def parition(S, left, right):
+    pivot_ind = random.randint(left, right)
+    S[right], S[pivot_ind] = S[pivot_ind], S[right]
 
-    while len(max_stack) != 0:
-        p, r = max_stack.pop() 
-        q = parition(A, p, r)
-        if q+1 <= r:
-            max_stack.append((q+1, r))
-        if p <= q:
-            min_stack.append((p, q))
-    
-    day = 0
-    total_snow =0
-    while len(min_stack) != 0:
-        p,r = min_stack.pop()
-        quick_sort(A, p, r)
-        for i in range(r, p-1, -1):
-            if A[i] <= day:
-                return total_snow
-            total_snow += A[i] - day
-            day += 1
-    return total_snow
-
-
-def solve(A):
-    n = len(A)
-    max_stack= [(0, n-1)]
-    min_stack = []
-
-    while len(max_stack) != 0:
-        p, r = max_stack.pop() 
-        q = parition(A, p, r)
-        if q+1 <= r:
-            max_stack.append((q+1, r))
-        if p <= q:
-            min_stack.append((p, q))
-    
-    day = 0
-    total_snow =0
-    while len(min_stack) != 0:
-        p,r = min_stack.pop()
-        quick_sort(A, p, r)
-        for i in range(r, p-1, -1):
-            if A[i] <= day:
-                return total_snow
-            total_snow += A[i] - day
-            day += 1
-    return total_snow
-
-
-
-def quick_sort(A, p, r):
-    while p < r:
-        q = parition(A, p, r)
-        quick_sort(A, p, q-1)
-        p = q+1
-
-
-def parition(A, p, r):
-    pivot = A[r]
-    i = p-1
-    for j in range(p, r):
-        if A[j] <= pivot:
+    pivot = S[right]
+    i = left-1
+    for j in range(left, right):
+        if S[j] <= pivot:
             i += 1
-            A[i], A[j] = A[j], A[i]
-    A[i+1], A[r] = A[r], A[i+1]
+            S[i], S[j] = S[j], S[i]
+    S[i+1], S[right] = S[right], S[i+1]
     return i+1
 
+
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests( snow, all_tests = False )
+runtests(snow, all_tests=True)
