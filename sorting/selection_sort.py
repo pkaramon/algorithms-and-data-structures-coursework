@@ -1,7 +1,8 @@
-def selection_sort(arr):
-    for i in range(len(arr)):
-        m = i
-        for j in range(i+1, len(arr)):
-            if arr[j] <= arr[m]:
-                m = j
-        arr[i], arr[m] = arr[m], arr[i]
+def selection_sort(array):
+    n = len(array)
+    for i in range(0, n):
+        k = i
+        for j in range(i+1, n):
+            if array[j] < array[k]:
+                k = j
+        array[i], array[k] = array[k], array[i]

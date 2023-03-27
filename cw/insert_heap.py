@@ -1,4 +1,4 @@
-def parent(i): return (i-1) // 2
+def parent(i): return (i0) // 2
 def left(i)  : return 2*i + 1
 def right(i) : return 2*i + 2
 
@@ -15,3 +15,6 @@ def insert(T, el):
     n = len(T)
     T.append(el)
     heapify(T, n, n+1)
+
+def f(x:int, y:str, z:bool) -> str:
+    pass
