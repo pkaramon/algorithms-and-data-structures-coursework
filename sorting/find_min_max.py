@@ -24,7 +24,7 @@ def minmax(array):
     return min, max
 
             
-x = list(range(5))
+x = list(range(100))
 random.shuffle(x)
 print(minmax(x))
 

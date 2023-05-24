@@ -1,9 +1,8 @@
-#include <iostream>
-#include <ctime>
+#include <cctype>
 #include <cmath>
 #include <cstdlib>
-#include <cctype>
-#include <cstdlib>
+#include <ctime>
+#include <iostream>
 
 using namespace std;
 
@@ -18,20 +17,16 @@ string consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNOPQRSTVWXYZ";
 
 bool is_vowel(char c)
 {
-    for (auto v : vowels)
-    {
-        if (c == v)
-            return true;
+    for (auto v : vowels) {
+        if (c == v) return true;
     }
     return false;
 }
 
 bool is_consonant(char c)
 {
-    for (auto v : consonants)
-    {
-        if (c == v)
-            return true;
+    for (auto v : consonants) {
+        if (c == v) return true;
     }
     return false;
 }
@@ -47,39 +42,32 @@ int main()
     haslo[1] = digits[rand() % digits.length()];
     haslo[2] = upcase[rand() % upcase.length()];
 
-    for (int i = 3; i < n; i++)
-    {
+    for (int i = 3; i < n; i++) {
         haslo[i] = all[rand() % all.length()];
     }
 
-    for (int i = 0; i < n - 1; i++)
-    {
+    for (int i = 0; i < n - 1; i++) {
         int j = (rand() % (n - i)) + i;
         char temp = haslo[i];
         haslo[i] = haslo[j];
         haslo[j] = temp;
     }
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cout << haslo[i];
     }
-    cout << endl << endl;;
+    cout << endl << endl;
 
-    for (int i = 1; i < n; i++)
-    {
-        if (is_vowel(haslo[i - 1]) && is_vowel(haslo[i]))
-        {
+    for (int i = 1; i < n; i++) {
+        if (is_vowel(haslo[i - 1]) && is_vowel(haslo[i])) {
             haslo[i] = consonants[rand() % consonants.length()];
         }
-        else if (is_consonant(haslo[i - 1]) && is_consonant(haslo[i]))
-        {
+        else if (is_consonant(haslo[i - 1]) && is_consonant(haslo[i])) {
             haslo[i] = vowels[rand() % vowels.length()];
         }
     }
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cout << haslo[i];
     }
 

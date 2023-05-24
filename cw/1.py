@@ -28,7 +28,7 @@ def findij(A, x):
 # i jest on taki sam
 # będziemy się poruszać po tablicy
 # zakładamy, że liderem jest pierwszy element
-# idziemy dalej 
+# idziemy dale 
 # potencjalny_lider, ile_razy_wystąpił
 # lider -> +1
 # nie lider -> -1

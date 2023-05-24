@@ -1,3 +1,28 @@
+""" Piotr Karamon
+Algorytm przechodzi przez każdy przedział, tworzy kopię tego przedziału a
+następnie używa algorytmu magicznych piątek by znaleźć k-ty największy
+element w tym przedziale i dodaje go do sumy.
+
+Zewnętrzna pętla wykonuje się co najwyżej n razy:
+    wewnętrz niej tworzymy kopię p-elementową czyli p
+    oraz szukamy k-tej co do wielkości liczby w tej tablicy czyli również p 
+Zatem złożoność czasowa to n*(2p)
+
+Czas: O(np)
+Pamięć: O(p)
+"""
+
+from kol1testy import runtests
+
+def ksum(T, k, p):
+    n = len(T)
+    total = 0
+    for i in range(n-p+1):
+        copy = T[i:i+p]
+        total += magic_fives(copy, 0,p-1, p-k)
+    return total
+
+
 def magic_fives(A, left, right, k):
     size = right - left + 1
     if size <= 5:
@@ -49,3 +74,9 @@ def partition(A, left, right, pivot):
             A[i], A[j] = A[j], A[i]
     A[right], A[i+1] = A[i+1], A[right]
     return i+1
+
+
+# zmien all_tests na True zeby uruchomic wszystkie testy
+runtests( ksum, all_tests=True )
+
+
