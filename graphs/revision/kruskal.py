@@ -1,4 +1,4 @@
-from findunion import find_set, union, Node
+from algs.g.findunion import find_set, union, Node
 
 
 def kruskal(graph):

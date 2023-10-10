@@ -21,6 +21,10 @@ def find_good_beginning_in_dag(graph):
 
     sccs = get_sccs(graph, processed)
     scc_ids = [-1] * n
+    for i, scc in enumerate(sccs):
+        for v in scc:
+            scc_ids[v] = i
+
     # there are duplicate edges in this edges
     # I know that and don't care
     scc_graph = create_scc_graph(graph, scc_ids, sccs)

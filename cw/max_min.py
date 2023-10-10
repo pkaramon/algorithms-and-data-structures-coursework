@@ -33,7 +33,7 @@ class MaxMinQueue:
 
         self.M.append(elem)
         i = len(self.M) - 1
-        while (par:=self.M[parent(i)]).value < self.M[i].value:
+        while (par:=self.M[parent(i)]).val < self.M[i].val:
             par.max_i, elem.max_i = elem.max_i, par.max_i
             self.M[parent(i)], self.M[i] = self.M[i], self.M[parent(i)]
             i = parent(i)
@@ -41,7 +41,7 @@ class MaxMinQueue:
 
         self.m.append(elem)
         i = len(self.m) - 1
-        while (par:=self.m[parent(i)]).value > self.m[i].value:
+        while (par:=self.m[parent(i)]).val > self.m[i].val:
             par.min_i, elem.min_i = elem.min_i, par.min_i
             self.m[i], self.m[parent(i)] = self.m[parent(i)], self.m[i]
             i = parent(i)
