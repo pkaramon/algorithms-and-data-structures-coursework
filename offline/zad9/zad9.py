@@ -11,9 +11,10 @@ Czas: O(nlogn)
 Pamięć: O(n)
 """
 
-from math import inf
-from zad9testy import runtests
 import heapq
+from math import inf
+
+from zad9testy import runtests
 
 
 def min_cost(P, K, T, L):

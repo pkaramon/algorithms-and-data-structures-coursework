@@ -1,4 +1,5 @@
 import random
+
 from linked_list import *
 
 
@@ -56,4 +57,3 @@ ll = from_array(x)
 print_linked_list(ll)
 ll = insertion_sort(ll)
 print_linked_list(ll)
-

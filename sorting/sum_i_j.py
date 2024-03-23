@@ -9,7 +9,7 @@
 
 def findij(T, x):
     n = len(T)
-    i, j = 0, n-1
+    i, j = 0, n - 1
     while i != j:
         if T[i] + T[j] == x:
             return i, j
@@ -18,5 +18,6 @@ def findij(T, x):
         else:
             i += 1
     return -1, -1
-    
+
+
 print(findij([2, 3, 5, 7, 10, 15, 28], 32))

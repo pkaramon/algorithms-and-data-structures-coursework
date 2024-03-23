@@ -37,9 +37,9 @@ def find_leader(array):
         if array[i] == array[leader]:
             count += 1
 
-    return leader if count > n/2 else -1
+    return leader if count > n / 2 else -1
 
 
-x = [2]*101 + [random.randint(1, 10000) for _ in range(100)]
+x = [2] * 101 + [random.randint(1, 10000) for _ in range(100)]
 random.shuffle(x)
 print(x[find_leader(x)])

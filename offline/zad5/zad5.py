@@ -6,8 +6,9 @@ Następnie uruchamia algorytm Dijkstry uwzględniając osobliwości tylko raz.
 Czas:   O(ElogV)
 Pamięć: O(E+V)
 """
-from zad5testy import runtests
 import heapq
+
+from zad5testy import runtests
 
 
 def spacetravel(n, E, S, a, b):

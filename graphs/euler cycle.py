@@ -70,7 +70,7 @@ class RemovedIndicator:
 
 def transform_undirected_adj_list(graph):
     n = len(graph)
-    transformed =  [[] for _ in range(n)]
+    transformed = [[] for _ in range(n)]
 
     for v in range(n):
         for u in graph[v]:

@@ -13,8 +13,10 @@ Złożoność czasowa    : O(nlogn)
 Złożoność pamięciowa : O(n)
 """
 
-from zad2testy import runtests
 import random
+
+from zad2testy import runtests
+
 
 def snow(S):
     n = len(S)
@@ -36,9 +38,9 @@ def snow(S):
             before = total_snow
             calculate_total_snow(S, q, right)
             if total_snow != before:
-                calculate_total_snow(S, left, q-1)
+                calculate_total_snow(S, left, q - 1)
 
-    calculate_total_snow(S, 0, n-1)
+    calculate_total_snow(S, 0, n - 1)
     return total_snow
 
 
@@ -47,13 +49,13 @@ def parition(S, left, right):
     S[right], S[pivot_ind] = S[pivot_ind], S[right]
 
     pivot = S[right]
-    i = left-1
+    i = left - 1
     for j in range(left, right):
         if S[j] <= pivot:
             i += 1
             S[i], S[j] = S[j], S[i]
-    S[i+1], S[right] = S[right], S[i+1]
-    return i+1
+    S[i + 1], S[right] = S[right], S[i + 1]
+    return i + 1
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy

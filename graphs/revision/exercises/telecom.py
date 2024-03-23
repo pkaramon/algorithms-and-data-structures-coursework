@@ -46,5 +46,4 @@ graph = from_edges_to_adj_list(11, [
     (9, 10),
 ])
 
-
 telecom(graph)

@@ -7,10 +7,11 @@
 # then compare with m and M apropriately
 import random
 
+
 def minmax(array):
     min, max = array[0], array[0]
     for i in range(len(array) % 2, len(array), 2):
-        x, y = array[i], array[i+1]
+        x, y = array[i], array[i + 1]
         if x > y:
             if x > max:
                 max = x
@@ -23,11 +24,7 @@ def minmax(array):
                 min = x
     return min, max
 
-            
+
 x = list(range(100))
 random.shuffle(x)
 print(minmax(x))
-
-
-    
-

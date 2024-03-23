@@ -1,6 +1,8 @@
-from zad6ktesty import runtests 
+from zad6ktesty import runtests
 
-def haslo ( S ):
+
+def haslo(S):
     return -1
 
-runtests ( haslo )
+
+runtests(haslo)

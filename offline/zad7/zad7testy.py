@@ -1,11 +1,10 @@
 # zad7testy.py
+
 from testy import *
-from zad7test_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
-from copy import deepcopy
+from zad7test_spec import ALLOWED_TIME, gentest
 
 
-def copyarg( arg ):
+def copyarg(arg):
     return deepcopy(arg)
 
 
@@ -13,23 +12,23 @@ def printarg(*arg):
     print(f'L = {limit(arg[0])}')
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Poprawny wynik: ", limit(hint))
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Otrzymany wynik: ", limit(sol))
 
 
-def check( hint, sol ):
-    return hint==sol        	
- 
+def check(hint, sol):
+    return hint == sol
 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
-    
-    L = [ '....','..#.','..#.','....']
+
+    L = ['....', '..#.', '..#.', '....']
     newtest = {}
     newtest["arg"] = [L]
     newtest["hint"] = 12
@@ -41,7 +40,8 @@ def generate_tests(num_tests = None):
     newtest["hint"] = 12
     TESTS.append(newtest)
 
-    L = ['....#...##', '...#....##', '#.........', '.......#..', '.......##.', '...#....#.', '#....#....', '##.....#.#', '..........', '......#...']
+    L = ['....#...##', '...#....##', '#.........', '.......#..', '.......##.', '...#....#.', '#....#....', '##.....#.#',
+         '..........', '......#...']
     newtest = {}
     newtest["arg"] = [L]
     newtest["hint"] = 40
@@ -56,10 +56,9 @@ def generate_tests(num_tests = None):
         newtest["arg"] = arg
         newtest["hint"] = hint
         TESTS.append(newtest)
-     
+
     return TESTS
 
- 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
 
+def runtests(f, all_tests=True):
+    internal_runtests(copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME)

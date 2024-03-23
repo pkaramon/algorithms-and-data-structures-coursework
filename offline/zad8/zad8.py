@@ -1,6 +1,7 @@
-from zad8testy import runtests
 from collections import deque
 from math import inf
+
+from zad8testy import runtests
 
 
 def plan(T):

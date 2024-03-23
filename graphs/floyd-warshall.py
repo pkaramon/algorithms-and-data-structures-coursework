@@ -18,6 +18,3 @@ def floyd_warshall(graph: list[list[int]]):
                 if dist[i][j] > dist[i][k] + dist[k][i]:
                     dist[i][j] = dist[i][k] + dist[k][i]
                     parent[i][j] = parent[k][j]
-
-
-

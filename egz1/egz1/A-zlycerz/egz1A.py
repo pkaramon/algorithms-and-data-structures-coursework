@@ -20,9 +20,9 @@ Czas: O(V^2Logv)
 Pamięć: O(V)
 
 """
-from egz1Atesty import runtests
-
 from queue import PriorityQueue
+
+from egz1Atesty import runtests
 
 VISIT = 0
 THEFT = 1
@@ -74,7 +74,7 @@ def dijkstra(graph, values, r, s, t):
 def edge_case(graph, values, r, s, t):
     n = len(graph)
 
-    d = [ float('inf') for _ in range(n)]
+    d = [float('inf') for _ in range(n)]
 
     d[s] = 0
 

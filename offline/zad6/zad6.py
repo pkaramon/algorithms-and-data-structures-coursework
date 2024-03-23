@@ -8,8 +8,9 @@ Czas: O(n^3)
 Pamięć: (n^2)
 """
 
-from zad6testy import runtests
 from collections import deque
+
+from zad6testy import runtests
 
 
 def binworker(M):

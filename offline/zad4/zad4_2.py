@@ -1,5 +1,6 @@
-from zad4testy import runtests
 from collections import deque
+
+from zad4testy import runtests
 
 
 def longer(G, s, t):
@@ -55,7 +56,7 @@ def find_shortest_path(G, s, t, ):
     n = len(G)
     visited = [False] * n
     parent = [None] * n
-    dist = [0]*n
+    dist = [0] * n
     q = deque()
     q.append(s)
     visited[s] = True

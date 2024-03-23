@@ -19,11 +19,12 @@ def black_forest(wood):
     parent = [None for _ in range(n)]
 
     for i in range(1, n):
-        cut[i] = not_cut[i-1] + wood[i]
-        not_cut[i] = max(not_cut[i-1], cut[i-1])
+        cut[i] = not_cut[i - 1] + wood[i]
+        not_cut[i] = max(not_cut[i - 1], cut[i - 1])
 
     trees_cut = [(wood[i], i) for i in range(n) if cut[i] > not_cut[i]]
 
-    return max(cut[n-1], not_cut[n-1]), trees_cut
+    return max(cut[n - 1], not_cut[n - 1]), trees_cut
 
-print(black_forest([1,3,2,4,5,8]))
+
+print(black_forest([1, 3, 2, 4, 5, 8]))

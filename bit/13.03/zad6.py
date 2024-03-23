@@ -14,25 +14,26 @@ def sort_numbers(nums):
     nums = counting_sort(nums, lambda x: x // n, n)
     return nums
 
-#  
+
+#
 def counting_sort(nums, get_digit, d):
     n = len(nums)
-    counts = [0] *  d
+    counts = [0] * d
 
     for x in nums:
         counts[get_digit(x)] += 1
 
     for i in range(1, n):
-        counts[i] += counts[i-1]
-    
+        counts[i] += counts[i - 1]
+
     output = [0] * n
-    for i in range(n-1, -1, -1):
+    for i in range(n - 1, -1, -1):
         d = get_digit(nums[i])
-        output[counts[d]-1] = nums[i]
+        output[counts[d] - 1] = nums[i]
         counts[d] -= 1
 
     return output
 
 
 #  
-print(sort_numbers([99, 25, 1, 43,0, 5, 77, 55, 9, 13,]))
+print(sort_numbers([99, 25, 1, 43, 0, 5, 77, 55, 9, 13, ]))

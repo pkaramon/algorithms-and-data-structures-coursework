@@ -21,8 +21,9 @@ Pamięć: O(N*E)
 
 """
 
-from egz1btesty import runtests
 from math import inf
+
+from egz1btesty import runtests
 
 
 def planets(D, C, T, E):
@@ -52,11 +53,10 @@ def planets(D, C, T, E):
             if D[i] - D[j] <= E:
                 for previous_fuel_level in range(D[i] - D[j], max(b + D[i] - D[j] + 1, E)):
                     f[i][b] = min(f[i][b],
-                                  rec(j, previous_fuel_level) + (b-previous_fuel_level + (D[i] - D[j])) * C[i]
+                                  rec(j, previous_fuel_level) + (b - previous_fuel_level + (D[i] - D[j])) * C[i]
                                   )
 
         return f[i][b]
-
 
     return min(rec(n - 1, b) for b in range(0, E + 1))
 

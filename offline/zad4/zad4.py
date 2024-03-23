@@ -12,8 +12,9 @@ Czas  : O((V+E)*V)
 Pamięć: O(V)
 """
 
-from zad4testy import runtests
 from collections import deque
+
+from zad4testy import runtests
 
 
 def longer(G, s, t):

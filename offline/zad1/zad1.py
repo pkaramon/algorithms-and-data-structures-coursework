@@ -15,32 +15,34 @@ Złożoność pamięciowa: O(n)
 
 from zad1testy import runtests
 
-def ceasar( s ):
+
+def ceasar(s):
     n = len(s)
     if n == 0:
         return 0
 
-    radii = [1]*n
-    box_center, box_bound = 0,  0
+    radii = [1] * n
+    box_center, box_bound = 0, 0
     for i in range(n):
         radius = 1
         # używanie symetrii by zacząć od promienia > 1
         if i <= box_bound:
-            bound_r = box_bound-i
-            symmetric_r = radii[2*box_center - i]
+            bound_r = box_bound - i
+            symmetric_r = radii[2 * box_center - i]
             radius = symmetric_r if symmetric_r < bound_r else bound_r
 
         # poszerzanie palindromu na tyle ile jest to możliwe
-        while radius+i < n and i-radius > -1 and s[i+radius] == s[i-radius]:
-            radius+=1
+        while radius + i < n and i - radius > -1 and s[i + radius] == s[i - radius]:
+            radius += 1
 
         # aktualizujemy palindrom otaczający by móc zaczynać od
         # większych promieni początkowych
-        if i+radius-1 > box_bound:
-            box_center, box_bound = i, i+radius-1
+        if i + radius - 1 > box_bound:
+            box_center, box_bound = i, i + radius - 1
 
         radii[i] = radius
-    return 2*max(radii) - 1
+    return 2 * max(radii) - 1
+
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
-runtests(ceasar , all_tests = True )
+runtests(ceasar, all_tests=True)

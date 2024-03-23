@@ -29,7 +29,7 @@ def kruskal(graph):
     mst = []
     vertices = [Node(i) for i in range(n)]
 
-    for u,v in edges:
+    for u, v in edges:
         if findset(vertices[u]) is not findset(vertices[v]):
             mst.append((u, v))
             union(vertices[u], vertices[v])

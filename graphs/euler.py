@@ -2,6 +2,7 @@
 class RemovedIndicator:
     def __init__(self):
         self.removed = False
+
     def __repr__(self):
         return f'{self.removed}'
 
@@ -46,12 +47,14 @@ print(find_euler_cycle([
     [0, 2]
 ]))
 
+
 def list_of_edges_to_adj(n, edges):
-    graph = [ [] for _ in range(n)]
+    graph = [[] for _ in range(n)]
     for u, v in edges:
         graph[u].append(v)
         graph[v].append(u)
     return graph
+
 
 print(find_euler_cycle(list_of_edges_to_adj(
     7,

@@ -4,7 +4,7 @@ from collections import deque
 def bfs(graph):
     order = len(graph)
     queue = deque()
-    visited = [False]*order
+    visited = [False] * order
 
     queue.appendleft(0)
     visited[0] = True
@@ -13,6 +13,3 @@ def bfs(graph):
         v = queue
         for i in range(order):
             pass
-
-
-

@@ -14,7 +14,6 @@ If we have a matrix we use "linear queue"
 When we take a vertex out of the queue we are adding it to the MST.
 """
 
-from utils import from_matrix_to_adj
 import heapq
 
 

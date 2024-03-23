@@ -45,4 +45,3 @@ graph = [
 
 # graph[3].append(12)
 # graph[12].append(3)
-

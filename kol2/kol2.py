@@ -45,7 +45,7 @@ def find_st(edge_list, n, m_i, M_i):
 
     mst_edges = [False] * len(edge_list)
 
-    for i in range(m_i, M_i+1):
+    for i in range(m_i, M_i + 1):
         v, u, w = edge_list[i]
         if m <= w <= M and find_set(nodes[v]) is not find_set(nodes[u]):
             union(nodes[v], nodes[u])
@@ -78,7 +78,6 @@ def union(x, y):
         x.parent = y
         if x.rank == y.rank:
             y.rank += 1
-
 
 
 # zmien all_tests na True zeby uruchomic wszystkie testy

@@ -25,6 +25,7 @@ def kruskal(graph):
             union(nodes[v], nodes[u])
     return mst_edges
 
+
 #
 # g = [
 #     [(1, 1), (5, 8), (4, 5)],
@@ -34,7 +35,6 @@ def kruskal(graph):
 #     [(0, 5), (2, 4), (5, 7), (3, 2)],
 #     [(0, 8), (4, 7)]
 # ]
-
 
 
 g = [

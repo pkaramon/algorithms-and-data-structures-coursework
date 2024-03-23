@@ -59,6 +59,3 @@ def maze(L):
 
 # zmien all_tests na True zeby uruchomic wszystkie testy
 runtests(maze, all_tests=True)
-
-
-

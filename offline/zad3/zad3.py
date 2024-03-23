@@ -11,12 +11,13 @@ pamięć: O(logn)
 """
 from zad3testy import runtests
 
+
 def strong_string(T):
     n = len(T)
     if n == 0:
         return 0
 
-    quick_sort(T, 0, n-1)
+    quick_sort(T, 0, n - 1)
 
     max_strength = 0
     i = 0
@@ -37,7 +38,7 @@ def strong_string(T):
                 curr_strength += 1
                 k += 1
 
-            k = rev_start-1
+            k = rev_start - 1
             while 0 <= k and T[k] == rev:
                 curr_strength += 1
                 k -= 1
@@ -51,7 +52,7 @@ def strong_string(T):
 R_SEED = 7
 R_A = 134775813
 R_C = 1
-R_MODULUS = 2**32
+R_MODULUS = 2 ** 32
 
 
 def rand():
@@ -61,7 +62,7 @@ def rand():
 
 
 def partition(T, left, right):
-    pivot_ind = rand() % (right-left+1) + left
+    pivot_ind = rand() % (right - left + 1) + left
     T[right], T[pivot_ind] = T[pivot_ind], T[right]
 
     pivot = T[right]
@@ -71,27 +72,27 @@ def partition(T, left, right):
         if T[j] < pivot:
             i += 1
             T[i], T[j] = T[j], T[i]
-    T[i+1], T[right] = T[right], T[i+1]
-    return i+1
+    T[i + 1], T[right] = T[right], T[i + 1]
+    return i + 1
 
 
 def quick_sort(T, left, right):
     while left < right:
         q = partition(T, left, right)
-        quick_sort(T, left, q-1)
-        left = q+1
+        quick_sort(T, left, q - 1)
+        left = q + 1
 
 
 def binary_search(array, x, low=0):
     high = len(array) - 1
     while low <= high:
-        m = (low+high) // 2
+        m = (low + high) // 2
         if x == array[m]:
             return m
         elif x < array[m]:
             high = m - 1
         else:
-            low = m+1
+            low = m + 1
     return -1
 
 

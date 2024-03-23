@@ -2,7 +2,7 @@ class Node:
     def __init__(self, key=None, next=None):
         self.key = key
         self.next = next
-    
+
     def __repr__(self) -> str:
         return f'-> {to_array(self)}'
 

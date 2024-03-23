@@ -1,11 +1,10 @@
 # zad9testy.py
+
 from testy import *
-from zad9test_spec import ALLOWED_TIME, TEST_SPEC, gentest
-
-from copy import deepcopy
+from zad9test_spec import ALLOWED_TIME, gentest
 
 
-def copyarg( arg ):
+def copyarg(arg):
     return deepcopy(arg)
 
 
@@ -16,15 +15,15 @@ def printarg(O, C, T, L):
     print("Odleglosc z A do B:\t", L)
 
 
-def printhint( hint ):
+def printhint(hint):
     print("Prawidlowy wynik:\t", hint)
 
 
-def printsol( sol ):
+def printsol(sol):
     print("Wynik algorytmu:\t", limit(sol))
 
 
-def check( O, C, T, L, hint, sol ):
+def check(O, C, T, L, hint, sol):
     good = True
 
     if hint != sol:
@@ -33,8 +32,8 @@ def check( O, C, T, L, hint, sol ):
 
     return good
 
- 
-def generate_tests(num_tests = None):
+
+def generate_tests(num_tests=None):
     global TEST_SPEC
     TESTS = []
 
@@ -47,10 +46,9 @@ def generate_tests(num_tests = None):
         newtest["arg"] = arg
         newtest["hint"] = hint
         TESTS.append(newtest)
-        
+
     return TESTS
 
 
-def runtests( f, all_tests = True ):
-    internal_runtests( copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME )
-
+def runtests(f, all_tests=True):
+    internal_runtests(copyarg, printarg, printhint, printsol, check, generate_tests, all_tests, f, ALLOWED_TIME)

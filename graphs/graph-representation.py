@@ -1,6 +1,3 @@
-import pprint
-
-
 # list of edges
 
 class ListOfEdgesGraph:
@@ -63,24 +60,19 @@ def from_list_of_edges_to_matrix(edges, order):
 
 def print_graph_matrix(matrix, order):
     order_digits = len(str(order))
-    print(" "*(order_digits+1), end='')
-    first_row = [f"{i:{order_digits}}" for i in range(order) ]
+    print(" " * (order_digits + 1), end='')
+    first_row = [f"{i:{order_digits}}" for i in range(order)]
     print(' '.join(first_row))
 
     for i in range(order):
         print(f'{i:{order_digits}} ', end='')
         for n in matrix[i]:
-            print(' '*(order_digits-1), end='')
+            print(' ' * (order_digits - 1), end='')
             print('T' if n else '.', end='')
             print(' ', end='')
         print()
 
 
-
-
-
-
-
-
 print_graph_matrix(
-    from_list_of_edges_to_matrix([(0, 1), (1, 0), (1, 2), (2, 3), (4, 1), (4, 3), (4, 5), (5, 4), (6, 7), (7, 8)], 101), 101)
+    from_list_of_edges_to_matrix([(0, 1), (1, 0), (1, 2), (2, 3), (4, 1), (4, 3), (4, 5), (5, 4), (6, 7), (7, 8)], 101),
+    101)

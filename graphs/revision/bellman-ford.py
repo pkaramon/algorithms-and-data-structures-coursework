@@ -5,7 +5,7 @@ def bellman_ford(graph, s, t):
 
     d[s] = 0
 
-    for i in range(n-1):
+    for i in range(n - 1):
         for u in range(n):
             for v, w in graph[u]:
                 if d[v] > d[u] + w:
@@ -17,6 +17,3 @@ def bellman_ford(graph, s, t):
             if d[v] > d[u] + w:
                 return None
     return parent
-
-
-
