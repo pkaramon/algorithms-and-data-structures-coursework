@@ -3,14 +3,6 @@
 This repository contains my coursework for the Algorithms and Data Structures course at AGH University of Science and Technology (AGH UST).
 The Course covered sorting algorithms, graph algorithms, and dynamic programming algorithms. All implementations are in Python.
 
-## Table of Contents 📚
-
-- [Introduction](#introduction)
-- [Sorting Algorithms](#sorting-algorithms)
-- [Graph Algorithms](#graph-algorithms)
-- [Dynamic Programming Algorithms](#dynamic-programming-algorithms)
-- [License](#license)
-
 ## Introduction 🌟
 
 This repository serves as a collection of the algorithms I've learned and implemented during my Algorithms
